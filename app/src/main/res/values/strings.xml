@@ -7,6 +7,6 @@
     <string name="bigger">大一點</string>
     <string name="smaller">小一點</string>
     <string name="bingo">賓果</string>
-    <string name="OK">確定</string>
     <string name="counter_times"> %1$d Times</string>
+    <string name="OK">確定</string>
 </resources>
