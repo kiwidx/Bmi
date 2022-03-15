@@ -1,6 +1,9 @@
 package com.example.bmi
 
 class NumberGame {
+    enum class GameState {
+        INIT, BIGGER, SMALLER, BINGO, END
+    }
     var secret : Int = 0
     var counter = 0
     var end = false
@@ -12,13 +15,13 @@ class NumberGame {
         counter = 0
         end = false
     }
-    fun guess(num: Int) : String {
+    fun guess(num: Int) : GameState {
         counter++
-        val message = if (num > secret) "Smaller"
-        else if (num < secret) "Bigger"
+        val message = if (num > secret) GameState.SMALLER
+        else if (num < secret) GameState.BIGGER
         else {
             end = true
-            "You got it"
+            GameState.BINGO
         }
         return message
     }

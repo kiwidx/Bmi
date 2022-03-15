@@ -25,6 +25,13 @@ class MainActivity : AppCompatActivity() {
         //將counter顯示跟tvcounter binding
         //binding.tvcounter.text = counter.toString()
         val num = binding.number.text.toString().toInt()
+        val state = game.guess(num)
+        val message = when(state){
+            NumberGame.GameState.BIGGER -> getString(R.string.bigger)
+            NumberGame.GameState.SMALLER -> getString(R.string.smaller)
+            NumberGame.GameState.BINGO -> getString(R.string.bingo)
+            else -> getString(R.string.somehting_goes_wrong)
+        }
         /*val message = if(num < secret) "Bigger"
             else if (num > secret) "Smaller"
             else{
@@ -34,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         }*/
         AlertDialog.Builder(this)
             .setTitle("Guess")
-            .setMessage(game.guess(num))
+            .setMessage(message)
             .setPositiveButton("OK"){ d, w->
                 if(game.end) game.reset()
                 updateUI()
