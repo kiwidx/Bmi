@@ -1,8 +1,8 @@
 package com.example.bmi
-
-class Student(var name: String,
-    var english: Int,
-    var math: Int){
+//change final to open
+open class Student(var name: String,
+                   var english: Int,
+                   var math: Int){
     //null constructor
     constructor(): this("", 0,0){
         println("Hi")
@@ -12,8 +12,17 @@ class Student(var name: String,
     fun print(){
         println("$name\t$english\t$math\t${average()}")
     }
-    fun average(): Int{
-        return (english+math)/2
+    fun average() = (english+math)/2
+
+    fun max(a: Int,b: Int) = if(a > b) a else b
+    fun highest() = if(english > math) english else math
+    fun grading() = when(average()/10){
+        in 9..10 -> 'A'
+        8 -> 'B'
+        7 -> 'C'
+        6 -> 'D'
+        else -> 'F'
+
     }
 
     fun main(){
