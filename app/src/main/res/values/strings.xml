@@ -9,4 +9,6 @@
     <string name="bingo">賓果</string>
     <string name="counter_times"> %1$d Times</string>
     <string name="OK">確定</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
