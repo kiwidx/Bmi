@@ -8,6 +8,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import com.example.bmi.databinding.ActivityMainBinding
 
+//The Controller, handle data changed state, UI, flow
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     val game = NumberGame()
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
         AlertDialog.Builder(this)
             .setTitle("Guess")
             .setMessage(message)
-            .setPositiveButton("OK"){ d, w->
+            .setPositiveButton(getString(R.string.OK)){ d, w->
                 if(game.end) game.reset()
                 updateUI()
             }
