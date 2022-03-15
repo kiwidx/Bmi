@@ -5,10 +5,12 @@ import androidx.lifecycle.ViewModel
 
 class GuessViewModel: ViewModel(){
     private var secret = 0
-    val  counter = MutableLiveData<Int>()
-    enum class GameState{
+    val counter = MutableLiveData<Int>()
+
+    enum class GameState {
         INIT,BIGGER,SMALLER,BINGO,END
     }
+
     val gameState = MutableLiveData<GameState>()
     init {
         gameState.value = GameState.INIT
