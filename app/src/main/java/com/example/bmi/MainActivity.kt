@@ -20,6 +20,18 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initFragment()
     }
 
+    /*val transaction = supportFragmentManager.beginTransaction()
+         transaction.add(R.id.my_container, guess1to10Fragment)
+         transaction.commit()*/
+    //Kotlin way
+    private fun initFragment(){
+        val  guess1to10Fragment = BlankFragment()
+        supportFragmentManager.beginTransaction().run {
+            add(R.id.my_container,guess1to10Fragment)
+            commit()
+        }
+    }
 }
