@@ -3,6 +3,8 @@ package com.example.bmi
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.example.bmi.databinding.ActivityMainBinding
 
 //The Controller, handle data changed state, UI, flow
@@ -36,6 +38,8 @@ class MainActivity : AppCompatActivity() {
                 else -> true
             }
         }
+        val database = Room.databaseBuilder(this, TranDataBase::class.java,"trans")
+
     }
 
     /*val transaction = supportFragmentManager.beginTransaction()
