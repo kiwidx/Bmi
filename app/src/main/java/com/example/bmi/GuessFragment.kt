@@ -7,14 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.bmi.databinding.ActivityMainBinding
-import com.example.bmi.databinding.FragmentBlankBinding
+import com.example.bmi.databinding.FragmentGuessBinding
 
-class BlankFragment: Fragment() {
-    lateinit var binding: FragmentBlankBinding
+class GuessFragment: Fragment() {
+    lateinit var binding: FragmentGuessBinding
     val viewModel by viewModels<GuessViewModel>()
     companion object{
-        val TAG = BlankFragment::class.java.simpleName
+        val TAG = GuessFragment::class.java.simpleName
     }
 
     override fun onCreateView(
@@ -22,7 +21,7 @@ class BlankFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentBlankBinding.inflate(layoutInflater)
+        binding = FragmentGuessBinding.inflate(layoutInflater)
         return binding.root
     }
 

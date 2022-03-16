@@ -6,6 +6,8 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_blank.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_empty.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_guess.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/menu_nav.xml" value="0.1421875" />
       </map>
     </option>
   </component>

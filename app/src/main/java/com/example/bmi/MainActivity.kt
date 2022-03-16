@@ -2,11 +2,7 @@ package com.example.bmi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.EditText
-import androidx.activity.viewModels
-import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
 import com.example.bmi.databinding.ActivityMainBinding
 
 //The Controller, handle data changed state, UI, flow
@@ -15,12 +11,29 @@ class MainActivity : AppCompatActivity() {
         private val TAG = MainActivity::class.java.simpleName
     }
     private lateinit var binding: ActivityMainBinding
+    val fragments = mutableListOf<Fragment>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initFragment()
+
+        binding.bottomNavBar.setOnClickListener{ item->
+            when(item.id){
+                R.id.action_guess->{
+                    supportFragmentManager.beginTransaction().run {
+                        replace(R.id.my_container, fragments[0])
+                    }
+                }
+                R.id.action_bmi->{
+
+                }
+                R.id.action_camera->{
+
+                }
+            }
+        }
     }
 
     /*val transaction = supportFragmentManager.beginTransaction()
@@ -28,9 +41,10 @@ class MainActivity : AppCompatActivity() {
          transaction.commit()*/
     //Kotlin way
     private fun initFragment(){
-        val  guess1to10Fragment = BlankFragment()
+        fragments.add(0,GuessFragment())
+//        val  guess1to10Fragment = GuessFragment()
         supportFragmentManager.beginTransaction().run {
-            add(R.id.my_container,guess1to10Fragment)
+            add(R.id.my_container,fragments[0])
             commit()
         }
     }
